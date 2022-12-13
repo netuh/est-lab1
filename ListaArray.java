@@ -56,26 +56,48 @@ public class ListaArray implements EstruturaDeDados{
 
     @Override
     public int minimum() {
-        // TODO Auto-generated method stub
-        return 0;
+        int minimo = this.array[0];
+
+        for (int i=0; i<this.array.length; i++) {
+            if (this.array[i] < minimo) {
+                minimo = this.array[i];
+            }
+        }
+        
+        return minimo;
     }
 
     @Override
     public int maximum() {
-        // TODO Auto-generated method stub
-        return 0;
+        int maximo = this.array[0];
+
+        for (int i=0; i<this.array.length; i++) {
+            if (this.array[i] > maximo) {
+                maximo = this.array[i];
+            }
+        }
+        
+        return maximo;
     }
 
     @Override
     public int sucessor(int chave) {
-        // TODO Auto-generated method stub
-        return 0;
+        for (int i=0; i<this.array.length; i++) {
+            if (this.array[i] == chave) {
+                return this.array[i] + 1;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int prodessor(int chave) {
-        // TODO Auto-generated method stub
-        return 0;
+        for (int i=0; i<this.array.length; i++) {
+            if (this.array[i] == chave) {
+                return this.array[i] - 1;
+            }
+        }
+        return -1;
     }
 
     public String getArray() {
@@ -90,12 +112,17 @@ public class ListaArray implements EstruturaDeDados{
         r.insert(20);
         r.insert(30);
         r.insert(50);
+        r.insert(100);
+        r.insert(-9);
         System.out.println(r.getArray());
-
         System.out.println(r.search(15));
         r.delete(5);
         System.out.println(r.getArray());
         r.delete(20);
         System.out.println(r.getArray());
+        System.out.println(r.maximum());
+        System.out.println(r.minimum());
+        System.out.println(r.sucessor(10));
+        System.out.println(r.prodessor(30));
     }
 }
